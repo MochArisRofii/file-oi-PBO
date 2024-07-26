@@ -4,4 +4,4 @@ pantun2 = file_puisi2.read()
 
 print(pantun2)
 
-file_puisi2.close()
+file_puisi2.close() 
