@@ -1,17 +1,17 @@
-def membaca():
-    with open('tugas-operasi-file/file.txt', "r") as file_txt:
+def membaca(nama_file):
+    with open(nama_file, "r") as file_txt:
         file_content = file_txt.read()
         print(file_content)
 
-def menulis():
+def menulis(nama_file):
     
-    membaca()
+    membaca("file.txt")
 
     nama_anime = input("Nama Anime: ")
     text = "\n {}".format(nama_anime)
 
 
-    with open("tugas-operasi-file/file.txt", "a") as file_anime:
+    with open(nama_file, "a") as file_anime:
         file_anime.write(text)
 
-menulis()
+menulis("file.txt")
