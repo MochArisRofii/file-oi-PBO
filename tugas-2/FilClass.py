@@ -16,6 +16,7 @@ class HandleFile:
         try:
             nama_anime = input("Nama Anime: ")
             teks = "\n {}".format(nama_anime)
+            
             with open(nama_file, mode) as file:
                 file.write(teks)
                 print(f"Text sudah ditulis dan sudah disimpan di file {nama_file}")
