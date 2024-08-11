@@ -7,8 +7,9 @@ class JsonKu:
     def baca(self):
         try:
             with open(self.file_name, 'r') as file:
-                data = json.load(file)
-                print(json.dumps(data, indent=4))
+                data = json.load(file) #json.load() adalah fungsi yang digunakan untuk membaca file JSON dan mengembalikan data dalam bentuk dictionary.
+                print(json.dumps(data, indent=4)) #json.dumps() adalah fungsi yang digunakan untuk mengubah data dictionary menjadi string JSON.
+                                                  #indent=4 adalah parameter yang digunakan untuk menambahkan indentasi ke dalam data JSON.
         except Exception as e:
             print(f"Error: {e}")
 
