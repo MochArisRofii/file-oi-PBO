@@ -1,6 +1,6 @@
 [
     {
-        "judul": "Halo",
+        "judul": "Perkenalan Diri",
         "pengarang": "Moch Aris Rofii",
         "tahun_terbit": 2024
     },
@@ -10,8 +10,8 @@
         "tahun_terbit": 2005
     },
     {
-        "judul": "Si Kancil Pintar",
-        "pengarang": "Pada Zaman Dahulu",
-        "tahun_terbit": 2020
+        "judul": "Python V-3.12",
+        "pengarang": "Guido Van Rossum",
+        "tahun_terbit": 1991
     }
 ]
