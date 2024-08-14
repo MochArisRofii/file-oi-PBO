@@ -5,13 +5,20 @@
         "tahun_terbit": 2024
     },
     {
-        "judul": "Neraka jahannam",
-        "pengarang": "bang",
-        "tahun_terbit": 2005
-    },
-    {
         "judul": "Python V-3.12",
         "pengarang": "Guido Van Rossum",
         "tahun_terbit": 1991
+    },
+    {
+        "judul": "Neraka Jahannam",
+        "pengarang": "Saya Sendiri",
+        "tahun_terbit": 2005,
+        "kategori": "Buku Edukasi Siksa Neraka",
+        "genre": [
+            "Real ",
+            "Non Fiksi",
+            "Horror",
+            "Film Jagal"
+        ]
     }
 ]

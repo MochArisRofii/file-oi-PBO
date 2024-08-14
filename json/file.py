@@ -19,9 +19,9 @@ class JsonKu:
                 data = json.load(file)
             if not isinstance(data, list):
                 data = [data]
-    
-            print("Data saat ini:")
-            print(json.dumps(data, indent=4))
+            else:
+                print("Data saat ini:")
+                print(json.dumps(data, indent=4))
     
             judul = input("Masukkan judul: ")
             pengarang = input("Masukkan pengarang: ")
@@ -51,24 +51,42 @@ class JsonKu:
                 print("Indeks tidak valid.")
                 return
     
-            key_to_update = input("Masukkan kunci yang ingin diperbarui (judul/pengarang/tahun_terbit): ")
-            if key_to_update not in data[index]:
-                print(f"Kunci {key_to_update} tidak ditemukan.")
+            print("Pilih opsi:")
+            print("1. Perbarui field yang ada")
+            print("2. Buat field baru")
+    
+            opsi = input("Masukkan pilihan (1/2): ")
+    
+            if opsi == "1":
+                key_to_update = input("Masukkan kunci yang ingin diperbarui Contoh (judul/pengarang/tahun_terbit): ")
+                if key_to_update in data[index]:
+                    if isinstance(data[index].get(key_to_update), list):
+                        print(f"Field {key_to_update} saat ini:")
+                        print(data[index].get(key_to_update))
+                        new_values = []
+                        while True:
+                            new_value = input(f"Masukkan nilai baru untuk field {key_to_update} (atau ketik 'selesai' untuk berhenti): ")
+                            if new_value.lower() == 'selesai':
+                                break
+                            new_values.append(new_value)
+                        data[index][key_to_update] = new_values
+                    else:
+                        new_value = input(f"Masukkan nilai baru untuk field {key_to_update}: ")
+                        data[index][key_to_update] = new_value
+                else:
+                    print("Kunci tidak ada.")
+                    return
+            elif opsi == "2":
+                new_key = input("Masukkan nama field baru: ")
+                new_value = input(f"Masukkan nilai baru untuk field {new_key}: ")
+                data[index][new_key] = new_value
+            else:
+                print("Pilihan tidak valid.")
                 return
     
-            if key_to_update == "tahun_terbit":
-                try:
-                    new_value = int(input("Masukkan nilai baru (angka): "))
-                except ValueError:
-                    print("Nilai harus berupa angka.")
-                    return
-            else:
-                new_value = input("Masukkan nilai baru: ")
-    
-            data[index][key_to_update] = new_value
             with open(self.file_name, 'w') as file:
                 json.dump(data, file, indent=4)
-            print(f"{key_to_update} berhasil diperbarui.")
+            print(f"Field berhasil diperbarui.")
         except Exception as e:
             print(f"Error: {e}")
 
