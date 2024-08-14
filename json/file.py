@@ -46,7 +46,7 @@ class JsonKu:
                 print("Data tidak dalam format list.")
                 return
     
-            index = int(input("Masukkan indeks baris yang ingin diperbarui (mulai dari 0): "))
+            index = int(input("Masukkan indeks baris yang ingin diperbarui (mulai dari 0):"))
             if index < 0 or index >= len(data):
                 print("Indeks tidak valid.")
                 return
