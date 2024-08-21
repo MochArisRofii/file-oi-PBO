@@ -69,21 +69,56 @@ class JsonKu:
                             if new_value.lower() == 'selesai':
                                 break
                             new_values.append(new_value)
-                        data[index][key_to_update] = new_values
+                        data[index][key_to_update].extend(new_values)
                     else:
-                        new_value = input(f"Masukkan nilai baru untuk field {key_to_update}: ")
-                        data[index][key_to_update] = new_value
+                        print("Apakah ingin menambahkan nilai baru sebagai array?")
+                        print("1. Ya")
+                        print("2. Tidak")
+                        pilihan = input("Masukkan pilihan (1/2): ")
+                        if pilihan == "1":
+                            new_value = input(f"Masukkan nilai baru untuk field {key_to_update}: ")
+                            data[index][key_to_update] = [new_value]
+                        elif pilihan == "2":
+                            print("Pilih tipe data:")
+                            print("1. Integer")
+                            print("2. String")
+                            tipe_data = input("Masukkan pilihan (1/2): ")
+                            if tipe_data == "1":
+                                new_value = int(input(f"Masukkan nilai baru untuk field {key_to_update}: "))
+                                data[index][key_to_update] = new_value
+                            elif tipe_data == "2":
+                                new_value = input(f"Masukkan nilai baru untuk field {key_to_update}: ")
+                                data[index][key_to_update] = new_value
+                            else:
+                                print("Pilihan tidak valid.")
                 else:
                     print("Kunci tidak ada.")
                     return
             elif opsi == "2":
                 new_key = input("Masukkan nama field baru: ")
-                new_value = input(f"Masukkan nilai baru untuk field {new_key}: ")
-                data[index][new_key] = new_value
-            else:
-                print("Pilihan tidak valid.")
-                return
-    
+                print("Apakah ingin menambahkan nilai baru sebagai array?")
+                print("1. Ya")
+                print("2. Tidak")
+                pilihan = input("Masukkan pilihan (1/2): ")
+                if pilihan == "1":
+                    new_value = input(f"Masukkan nilai baru untuk field {new_key}: ")
+                    data[index][new_key] = [new_value]
+                elif pilihan == "2":
+                    print("Pilih tipe data:")
+                    print("1. Integer")
+                    print("2. String")
+                    tipe_data = input("Masukkan pilihan (1/2): ")
+                    if tipe_data == "1":
+                        new_value = int(input(f"Masukkan nilai baru untuk field {new_key}: "))
+                        data[index][new_key] = new_value
+                    elif tipe_data == "2":
+                        new_value = input(f"Masukkan nilai baru untuk field {new_key}: ")
+                        data[index][new_key] = new_value
+                    else:
+                        print("Pilihan tidak valid.")
+                else:
+                    print("Pilihan tidak valid.")
+                    return
             with open(self.file_name, 'w') as file:
                 json.dump(data, file, indent=4)
             print(f"Field berhasil diperbarui.")

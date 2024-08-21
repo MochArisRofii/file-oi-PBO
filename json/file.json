@@ -2,7 +2,15 @@
     {
         "judul": "Perkenalan Diri",
         "pengarang": "Moch Aris Rofii",
-        "tahun_terbit": 2024
+        "tahun_terbit": 2024,
+        "Alamat": "Jl Permadi ",
+        "Kualifikasi": [
+            "Lomba LKS",
+            "Lomba STEM",
+            "Lomba Mobile Legends"
+        ],
+        "Juara": 3,
+        "ttglhr": 2007
     },
     {
         "judul": "Python V-3.12",
